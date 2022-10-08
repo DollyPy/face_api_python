@@ -1,19 +1,19 @@
 const video = document.getElementById('video');
 
-var socket = io.connect('https://tifacerec22.herokuapp.com/');
+var socket = io.connect(location.protocol+"//"+document.domain+":"+location.port);
 socket.on( 'connect', function() {
   console.log("SOCKET CONNECTED")
 })
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 Promise.all([
-  faceapi.loadFaceLandmarkModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadFaceRecognitionModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadTinyFaceDetectorModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadFaceLandmarkModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadFaceLandmarkTinyModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadFaceRecognitionModel("https://tifacerec22.herokuapp.com/static/models/"),
-  faceapi.loadFaceExpressionModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceLandmarkModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadFaceRecognitionModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadTinyFaceDetectorModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadFaceLandmarkModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadFaceLandmarkTinyModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadFaceRecognitionModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
+  faceapi.loadFaceExpressionModel(location.protocol+"//"+document.domain+":"+location.port+"/static/models/"),
 ])
   .then(startVideo)
   .catch(err => console.error(err));
