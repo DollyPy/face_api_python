@@ -1,19 +1,19 @@
 const video = document.getElementById('video');
 
-var socket = io.connect('http://127.0.0.1:5000');
+var socket = io.connect('https://tifacerec22.herokuapp.com/');
 socket.on( 'connect', function() {
   console.log("SOCKET CONNECTED")
 })
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 Promise.all([
-  faceapi.loadFaceLandmarkModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadFaceRecognitionModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadTinyFaceDetectorModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadFaceLandmarkModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadFaceLandmarkTinyModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadFaceRecognitionModel("http://127.0.0.1:5000/static/models/"),
-  faceapi.loadFaceExpressionModel("http://127.0.0.1:5000/static/models/"),
+  faceapi.loadFaceLandmarkModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceRecognitionModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadTinyFaceDetectorModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceLandmarkModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceLandmarkTinyModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceRecognitionModel("https://tifacerec22.herokuapp.com/static/models/"),
+  faceapi.loadFaceExpressionModel("https://tifacerec22.herokuapp.com/static/models/"),
 ])
   .then(startVideo)
   .catch(err => console.error(err));
